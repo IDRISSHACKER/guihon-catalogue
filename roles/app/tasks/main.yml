@@ -11,12 +11,15 @@
     source: pull
 
 - name: Obtaining project from github
+  become: false
   git: clone=true repo={{ app_repository }} dest={{  app_destination  }}
 
 - name: "Navigate to {{ app_destination }}"
+  become: false
   command: "cd ~/{{ app_destination }}"
 
 - name: install packages
+  become: false
   command: "npm install"
 
 - name: start container

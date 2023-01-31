@@ -24,7 +24,6 @@
       - "{{ container_port }}:{{ app_port }}"
     volumes:
       - "{{ app_destination }}:/usr/local/app"
-    working_dir : /usr/local/app
     command:
       - npm run debug
       - npm install

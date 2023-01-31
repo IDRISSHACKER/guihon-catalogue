@@ -13,9 +13,6 @@
 - name: Obtaining project from github
   git: clone=true repo={{ app_repository }} dest={{  app_destination  }}
 
-- name: "Navigate to {{ app_destination }}"
-  become: false
-
 - name: install packages
   become: false
   command: chdir="~/{{ app_destination }}" "npm install"

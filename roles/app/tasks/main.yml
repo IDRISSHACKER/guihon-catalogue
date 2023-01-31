@@ -25,13 +25,6 @@
     volumes:
       - "{{ app_destination }}:/usr/local/app"
     working_dir : /usr/local/app
-
-- name: Install dependancies
-  command: npm install
-
-- name: Generate artefact
-  command: npm run build
-
-- name: Start app
-  command: npm run start
+    command: npm install && npm run:build && npm start
+    
 ...

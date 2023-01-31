@@ -37,5 +37,6 @@
       - "{{ app_destination }}:/usr/local/app"
     working_dir: /usr/local/app
     command:
-      - npm run start
+      chdir: /usr/local/app
+      cmd: npm start
 ...

@@ -1,7 +1,7 @@
 ---
 hosts: test
 become: yes
-vars:
+- vars:
   app_repository: "https://github.com/IDRISSHACKER/guihon-catalogue.git"
   app_port: 8222
   container_port: 3000
@@ -11,7 +11,7 @@ vars:
   sites_available_dir: "/etc/nginx/sites-available"
   sites_enabled_dir: "/etc/nginx/sites-enabled"
 
-roles:
+- roles:
   - app
   - proxy
   - firewall

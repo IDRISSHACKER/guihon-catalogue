@@ -4,7 +4,7 @@
     name: "docker"
     state: started
 
-- name: Deploy nginx docker container
+- name: Deploy  app inside a  docker container
   docker_container:
     image: node:latest
     name: node

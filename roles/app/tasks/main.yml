@@ -25,6 +25,6 @@
     volumes:
       - "{{ app_destination }}:/usr/local/app"
     command:
-      - npm run debug
+      - npm run prepublish
       - npm install
 ...

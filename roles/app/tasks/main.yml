@@ -34,7 +34,7 @@
     ports:
       - "{{ container_port }}:{{ app_port }}"
     volumes:
-      - "~/{{ app_destination }}:/app"
-    working_dir: app
+      - "~/{{ app_destination }}:~/app"
+    working_dir: ~/app
     command: npm start
 ...

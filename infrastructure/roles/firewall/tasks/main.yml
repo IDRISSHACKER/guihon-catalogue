@@ -1,6 +1,6 @@
 ---
 - name: "Unable ports {{ app_port }}" 
-  sercice:
+  service:
     name: ufw
     port: "{{ app_port }}"
     state: enabled

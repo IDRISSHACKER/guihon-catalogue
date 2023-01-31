@@ -1,20 +1,20 @@
 ---
-hosts: test
-- become: yes
-- vars:
-  - app_repository: "https://github.com/IDRISSHACKER/guihon-catalogue.git"
-  - app_port: 8222
-  - container_port: 3000
-  - server_name: "localhost:{{ app_port }}"
-  - server_dns: "guihon-catalogue.guihon.cm"
-  - reverse_proxy_file: "templates/guihon.catalogue.nginx.j2"
-  - sites_available_dir: "/etc/nginx/sites-available"
-  - sites_enabled_dir: "/etc/nginx/sites-enabled"
+- hosts: test
+  become: true
+  vars:
+    app_repository: "https://github.com/IDRISSHACKER/guihon-catalogue.git"
+    app_port: 8222
+    container_port: 3000
+    server_name: "localhost:{{ app_port }}"
+    server_dns: "guihon-catalogue.guihon.cm"
+    reverse_proxy_file: "templates/guihon.catalogue.nginx.j2"
+    sites_available_dir: "/etc/nginx/sites-available"
+    sites_enabled_dir: "/etc/nginx/sites-enabled"
 
-- roles:
-  - app
-  - proxy
-  - firewall
-  - sys
+  roles:
+    - app
+    - proxy
+    - firewall
+    - sys
 
 ...

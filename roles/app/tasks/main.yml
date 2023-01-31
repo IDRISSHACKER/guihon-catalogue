@@ -25,6 +25,10 @@
     volumes:
       - "{{ app_destination }}:/usr/local/app"
     working_dir : /usr/local/app
-    command: npm install && npm run:build && npm start
+    command:
+      - npm install
+      - npm run build
+      - npm run start:prod
+
     
 ...

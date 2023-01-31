@@ -26,6 +26,6 @@
       - "{{ app_destination }}:/usr/local/app"
     working_dir : /usr/local/app
     command:
-      - npm install
       - npm run debug
+      - npm install
 ...

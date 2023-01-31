@@ -1,8 +1,13 @@
 ---
-- name: "Restart nginx"
+- name: "Stop nginx"
   service: 
     name: nginx
-    state: restarted
+    state: stoped
+
+- name: "Start nginx"
+  service: 
+    name: nginx
+    state: started
 
 - name: "End msg"
   debug:

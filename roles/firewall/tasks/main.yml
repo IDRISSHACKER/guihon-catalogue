@@ -3,6 +3,6 @@
   ufw:
     rule: allow
     port: "{{ app_port }}"
-    state: started
+    state: enabled
     proto: tcp
 ...

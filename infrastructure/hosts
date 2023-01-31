@@ -1,0 +1,10 @@
+[prod]
+server1
+
+[prod:vars]
+ansible_connexion=ssh
+ansible_ssh_host=78.46.11.32
+ansible_ssh_password=Guihon2023
+ansible_ssh_user=aysfishh117
+ansible_user=aysfishh117
+ansible_become_password=Guihon2023

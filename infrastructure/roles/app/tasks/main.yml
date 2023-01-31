@@ -1,0 +1,26 @@
+---
+- name: Start docker
+  service:
+    name: "docker"
+    state: started
+
+- name: Deploy nginx docker container
+  docker_container:
+    image: node:latest
+    name: node
+    state: started
+    exposed_ports: '{{ container_port }}'
+    ports: '{{ app_port }}:{{ container_port }}'
+
+- name: Obtaining project from github
+  git: clone=true repo={{ app_repository }} dest={{  app_destination  }}
+
+- name: Install dependancies
+  command: npm install
+
+- name: Generate artefact
+  command: npm run build
+
+- name: Start app
+  command: npm run start
+...

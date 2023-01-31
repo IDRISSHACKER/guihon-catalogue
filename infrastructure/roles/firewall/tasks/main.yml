@@ -1,0 +1,9 @@
+---
+- name: 'Unable ports {{ app_port }}' 
+  sercice:
+    name: ufw
+    port: '{{ app_port }}'
+    state: enabled
+    rule: allow
+    proto: tcp
+...

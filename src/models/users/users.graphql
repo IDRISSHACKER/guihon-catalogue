@@ -1,0 +1,7 @@
+type Users {
+    id: String!
+    username: String!
+    email: String!
+    phone: String!
+    facebook: String!
+}

@@ -3,7 +3,7 @@
   service:
     name: ufw
     port: "{{ app_port }}"
-    state: enabled
+    state: started
     rule: allow
     proto: tcp
 ...

@@ -5,7 +5,7 @@ node{
     stage('Ansible'){
         ansiblePlaybook(
             colorized: true,
-            playbook: './plabook.yml'
+            playbook: './infrastructure/plabook.yml'
         ) 
     }
 }

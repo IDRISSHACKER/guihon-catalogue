@@ -1,0 +1,8 @@
+---
+- name: Copy proxy file
+  template: src="{{ reverse_proxy_file }}" dest="{{ sites_available_dir }}/catalogue.guihon"
+
+- name: Dispatch app to site available
+  become: true
+  file: src="{{ sites_available_dir }}/catalogue.guihon" dest="{{ sites_enabled_dir }}/catalogue.guihon" state=link force=true
+...

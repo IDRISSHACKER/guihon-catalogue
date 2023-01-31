@@ -1,15 +1,18 @@
 ---
 - name: "Stop nginx"
-  service: 
+  service:
+    become: true 
     name: nginx
     state: stopped
 
 - name: "Start nginx"
+  become: true 
   service: 
     name: nginx
     state: started
 
 - name: "End msg"
+  become: true 
   debug:
     msg: "Application deployé avec success"
 ...

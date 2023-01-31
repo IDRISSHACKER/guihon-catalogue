@@ -3,5 +3,5 @@
   template: src="{{ reverse_proxy_file }}" dest="{{ sites_available_dir }}/catalogue.guihon"
 
 - name: Dispatch app to site available
-  file: src="{{ sites_available_dir }}" dest="{{ sites_enabled_dir }}/catalogue.guihon" mode=link
+  file: src="{{ sites_available_dir }}" dest="{{ sites_enabled_dir }}/catalogue.guihon" mode=link state=persist
 ...

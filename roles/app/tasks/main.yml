@@ -40,9 +40,14 @@
   register: app_status
 
 - name: show container status
-  debug: var=register
+  debug: var=app_status
 
-- name: show container logs
+
+- name: get container logs
   shell: 
     cmd: "docker logs {{ container_name }}" 
+  register: container_logs
+
+- name: show container status
+  debug: var=container_logs
 ...

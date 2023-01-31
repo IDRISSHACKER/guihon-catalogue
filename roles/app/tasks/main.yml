@@ -4,16 +4,24 @@
     name: "docker"
     state: started
 
-- name: Deploy  app inside a  docker container
-  docker_container:
-    image: node:latest
-    name: node
-    state: started
-    exposed_ports: "{{ container_port }}"
-    ports: "{{ app_port }}:{{ container_port }}"
-
+- name: pulling image
+  docker_image:
+    image: node
+    tag: latest
 - name: Obtaining project from github
   git: clone=true repo={{ app_repository }} dest={{  app_destination  }}
+
+- name: start container
+  docker_container:
+    name: App_server
+    image: node:latest
+    state: started
+    exposed_ports:
+      - "{{ container_port }}"
+    ports:
+      - "{{ container_port }}:{{ app_port }}"
+    volumes:
+      - "{{ app_destination }}:."
 
 - name: Install dependancies
   command: npm install

@@ -26,7 +26,7 @@
 
 - name: start container
   docker_container:
-    name: App_server
+    name: "{{ container_name }}"
     image: node:latest
     state: started
     exposed_ports:
@@ -36,5 +36,13 @@
     volumes:
       - "~/{{ app_destination }}:/app"
     working_dir: /app
-    command: npm start
+    command: npm dev
+  register: app_status
+
+- name: show container status
+  debug: var=register
+
+- name: show container logs
+  shell: 
+    cmd: "docker logs {{ container_name }}" 
 ...

@@ -11,6 +11,7 @@
     reverse_proxy_file: "templates/guihon.catalogue.nginx.j2"
     sites_available_dir: "/etc/nginx/sites-available"
     sites_enabled_dir: "/etc/nginx/sites-enabled"
+    container_name: guihon_catalogue_server
 
   roles:
     - app

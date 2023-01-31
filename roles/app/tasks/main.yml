@@ -15,11 +15,10 @@
 
 - name: "Navigate to {{ app_destination }}"
   become: false
-  command: chdir="~/{{ app_destination }}"
 
 - name: install packages
   become: false
-  command: "npm install"
+  command: chdir="~/{{ app_destination }}" "npm install"
 
 - name: start container
   docker_container:

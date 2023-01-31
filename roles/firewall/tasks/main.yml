@@ -2,8 +2,7 @@
 - name: "Unable ports {{ app_port }}" 
   service:
     name: ufw
-    port: "{{ app_port }}"
-    state: started
     rule: allow
+    port: "{{ app_port }}"
     proto: tcp
 ...

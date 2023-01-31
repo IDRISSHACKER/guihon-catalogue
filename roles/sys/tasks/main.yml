@@ -12,7 +12,6 @@
     state: started
 
 - name: "End msg"
-  become: true 
   debug:
     msg: "Application deployé avec success"
 ...

@@ -13,6 +13,9 @@
 - name: Obtaining project from github
   git: clone=true repo={{ app_repository }} dest={{  app_destination  }}
 
+- name: install packages
+  command: "npm install"
+
 - name: start container
   docker_container:
     name: App_server
@@ -26,6 +29,5 @@
       - "{{ app_destination }}:/usr/local/app"
     working_dir: /usr/local/app
     command:
-      - npm run runall
-      - npm install
+      - npm run start
 ...

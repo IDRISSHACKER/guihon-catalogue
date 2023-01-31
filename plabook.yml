@@ -1,5 +1,5 @@
 ---
-- hosts: test
+- hosts: all
   become: yes
   vars:
     app_repository: "https://github.com/IDRISSHACKER/guihon-catalogue.git"

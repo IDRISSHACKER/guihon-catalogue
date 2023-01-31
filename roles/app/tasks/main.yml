@@ -22,8 +22,9 @@
       - "{{ container_port }}"
     ports:
       - "{{ container_port }}:{{ app_port }}"
-    volumes_from:
-      - "{{ app_destination }}"
+    volumes:
+      - "{{ app_destination }}:app"
+    working_dir : app
 
 - name: Install dependancies
   command: npm install

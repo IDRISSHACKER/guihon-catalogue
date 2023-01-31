@@ -24,7 +24,12 @@
     chdir: "~/{{ app_destination }}" 
     cmd: "npm install"
 
-- name: start container
+- name: Build app
+  shell: 
+    chdir: "~/{{ app_destination }}" 
+    cmd: "npm run build"
+
+- name: start app inside a container
   docker_container:
     name: "{{ container_name }}"
     image: node:latest
@@ -36,7 +41,7 @@
     volumes:
       - "~/{{ app_destination }}:/app"
     working_dir: /app
-    command: "npm run start"
+    command: "npm run start:prod"
   register: app_status
 
 - name: show container status

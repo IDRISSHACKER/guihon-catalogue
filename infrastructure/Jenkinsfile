@@ -1,12 +1,11 @@
 node{
-    stage('Obtaining project from github'){
+    stage('Clone'){
         git 'https://github.com/IDRISSHACKER/guihon-catalogue.git'
     }
-
-    stage('Deploy app from ansible script'){
-        ansiblePlabook(
+    stage('Ansible'){
+        ansiblePlaybook(
             colorized: true,
-            plabook: './plabook.yml'
-        )
+            playbook: './plabook.yml'
+        ) 
     }
 }

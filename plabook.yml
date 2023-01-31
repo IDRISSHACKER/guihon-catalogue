@@ -1,6 +1,6 @@
 ---
 hosts: test
-become: yes
+- become: yes
 - vars:
   - app_repository: "https://github.com/IDRISSHACKER/guihon-catalogue.git"
   - app_port: 8222

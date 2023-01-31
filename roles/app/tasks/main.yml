@@ -8,6 +8,7 @@
   docker_image:
     name: node
     tag: latest
+    source: pull
 
 - name: Obtaining project from github
   git: clone=true repo={{ app_repository }} dest={{  app_destination  }}

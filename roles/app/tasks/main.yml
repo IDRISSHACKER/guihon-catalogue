@@ -27,8 +27,5 @@
     working_dir : /usr/local/app
     command:
       - npm install
-      - npm run build
-      - "npm run prod"
-
-    
+      - npm run debug
 ...

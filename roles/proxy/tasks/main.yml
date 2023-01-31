@@ -4,5 +4,5 @@
 
 - name: Dispatch app to site available
   become: true
-  file: src="{{ sites_available_dir }}" dest="{{ sites_enabled_dir }}/catalogue.guihon" mode=link state=link
+  file: src="{{ sites_available_dir }}/catalogue.guihon" dest="{{ sites_enabled_dir }}/catalogue.guihon" state=link force=true
 ...

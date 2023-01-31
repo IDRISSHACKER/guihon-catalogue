@@ -15,7 +15,7 @@
 
 - name: "Navigate to {{ app_destination }}"
   become: false
-  command: "cd ~/{{ app_destination }}"
+  command: chdir="~/{{ app_destination }}"
 
 - name: install packages
   become: false

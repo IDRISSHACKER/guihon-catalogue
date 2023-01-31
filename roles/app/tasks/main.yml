@@ -15,7 +15,9 @@
 
 - name: install packages
   become: false
-  command: chdir="~/{{ app_destination }}" "npm install"
+  shell: 
+    chdir: "~/{{ app_destination }}" 
+    cmd: "npm install"
 
 - name: start container
   docker_container:

@@ -9,8 +9,8 @@
     image: node:latest
     name: node
     state: started
-    exposed_ports: '{{ container_port }}'
-    ports: '{{ app_port }}:{{ container_port }}'
+    exposed_ports: "{{ container_port }}"
+    ports: "{{ app_port }}:{{ container_port }}"
 
 - name: Obtaining project from github
   git: clone=true repo={{ app_repository }} dest={{  app_destination  }}

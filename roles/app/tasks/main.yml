@@ -36,7 +36,7 @@
     volumes:
       - "~/{{ app_destination }}:/app"
     working_dir: /app
-    command: "npm run debug"
+    command: "npm run start"
   register: app_status
 
 - name: show container status

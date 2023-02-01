@@ -5,8 +5,8 @@ import env from "./common/constants/settings";
 import {AppController} from "./app.controller";
 import {AppService} from "./app.service";
 import { join } from "path"
-import { UsersService } from './users/users.service';
-import { UsersModule } from './users/users.module';
+import {UsersModule} from "./models/users/users.module";
+import {MongooseModule} from "@nestjs/mongoose";
 
 @Module({
   imports: [
@@ -14,16 +14,15 @@ import { UsersModule } from './users/users.module';
         driver: ApolloDriver,
         debug: !env.PROD,
         playground: !env.PROD,
-          typePaths: ["./models/**/*.graphql"],
-          definitions: {
-            path: join(process.cwd(), 'src/graphql.ts'),
-            outputAs: 'class'
-          }
+          autoSchemaFile: join(process.cwd(), "src/schema.gql"),
+          sortSchema: true,
+      }),
+      MongooseModule.forRoot(env.DB, {
       }),
       UsersModule,
   ],
   controllers: [AppController],
-  providers: [AppService, UsersService]
+  providers: [AppService]
 })
 
 export class AppModule {}

@@ -16,7 +16,6 @@
   roles:
     - app
     - proxy
-    - firewall
     - sys
 
 ...

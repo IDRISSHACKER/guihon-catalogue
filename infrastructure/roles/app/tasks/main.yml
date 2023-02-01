@@ -47,8 +47,7 @@
 
 
 - name: get container logs
-  shell:
-    cmd: "docker logs {{ container_name }}"
+  command: "docker logs {{ container_name }}"
   register: container_logs
 
 - name: show container status

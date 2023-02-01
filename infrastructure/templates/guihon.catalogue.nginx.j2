@@ -3,8 +3,8 @@ upstream guihon_catalogue {
 }
 
 server{
-    listen {{ app_port }};
-    listen [::]:{{ app_port }};
+    listen 80;
+    listen [::]:80;
 
     server_name {{ server_dns }};
 

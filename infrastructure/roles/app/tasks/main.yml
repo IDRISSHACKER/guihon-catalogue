@@ -37,9 +37,7 @@
     volumes:
       - "~/{{ app_destination }}:/app"
     working_dir: /app
-    shell:
-      chdir: "/app"
-      cmd:  "npm run start:dev"
+    command: "npm run start:dev"
   register: app_status
 
 - name: show container status
@@ -47,7 +45,8 @@
 
 
 - name: get container logs
-  command: "docker logs {{ container_name }}"
+  shell:
+    cmd: "docker logs {{ container_name }}"
   register: container_logs
 
 - name: show container status

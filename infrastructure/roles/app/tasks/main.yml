@@ -15,19 +15,15 @@
 
 
 - name: Show dir
-  shell: 
-    chdir: "~/{{ app_destination }}" 
+  shell:
+    chdir: "~/{{ app_destination }}"
     cmd: ls
 
 - name: install packages
-  shell: 
-    chdir: "~/{{ app_destination }}" 
+  shell:
+    chdir: "~/{{ app_destination }}"
     cmd: "npm install"
 
-- name: Build app
-  shell: 
-    chdir: "~/{{ app_destination }}" 
-    cmd: "npm run build"
 
 - name: start app inside a container
   docker_container:
@@ -41,7 +37,9 @@
     volumes:
       - "~/{{ app_destination }}:/app"
     working_dir: /app
-    command: "npm run start:prod"
+    shell:
+      chdir: "/app"
+      cmd:  "npm run start:dev"
   register: app_status
 
 - name: show container status
@@ -49,8 +47,8 @@
 
 
 - name: get container logs
-  shell: 
-    cmd: "docker logs {{ container_name }}" 
+  shell:
+    cmd: "docker logs {{ container_name }}"
   register: container_logs
 
 - name: show container status

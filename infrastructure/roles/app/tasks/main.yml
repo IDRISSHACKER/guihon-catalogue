@@ -28,7 +28,7 @@
 - name: start app inside a container
   docker_container:
     name: "{{ container_name }}"
-    image: node:latest
+    image: node:18.13.0-alpine
     state: started
     exposed_ports:
       - "{{ app_port }}"

@@ -29,13 +29,15 @@
   docker_container:
     name: "{{ container_name }}"
     image: node:18.13.0-alpine
-    state: started
+    state: present
+    recreate: yes
     exposed_ports:
       - "{{ app_port }}"
     ports:
       - "{{ app_port }}:{{ container_port }}"
     volumes:
       - "~/{{ app_destination }}:/app"
+
     working_dir: /app
     command: "npm run start:dev"
   register: app_status

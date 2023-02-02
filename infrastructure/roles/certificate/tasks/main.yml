@@ -1,0 +1,8 @@
+- name: 'Get certificate'
+  command: '/bin/sh certbot -n --nginx certonly -d {{ server_dns }}'
+  args:
+    creates: '/etc/letsencrypt/live/{{ server_dns }}'
+  ignore_errors: true
+  tags:
+    - nginx
+    - certbot

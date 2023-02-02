@@ -29,7 +29,7 @@
   docker_container:
     name: "{{ container_name }}"
     image: node:18.13.0-alpine
-    state: present
+    state: started
     recreate: yes
     exposed_ports:
       - "{{ app_port }}"

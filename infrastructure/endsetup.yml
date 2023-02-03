@@ -1,0 +1,12 @@
+---
+- hosts: test
+  become: yes
+  vars-files:
+    - "vars/default.yml"
+
+  roles:
+    - proxy
+    - certificate
+    - firewall
+    - sys
+...

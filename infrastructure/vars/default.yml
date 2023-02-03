@@ -1,0 +1,10 @@
+app_repository: "https://github.com/IDRISSHACKER/guihon-catalogue.git"
+app_destination: "guihon.catalogue"
+app_port: 8223
+container_port: 8000
+server_name: "localhost:{{ app_port }}"
+server_dns: "catalogue.guihon.cm"
+reverse_proxy_file: "templates/guihon.catalogue.nginx.j2"
+sites_available_dir: "/etc/nginx/sites-available"
+sites_enabled_dir: "/etc/nginx/sites-enabled"
+container_name: guihon_catalogue_server

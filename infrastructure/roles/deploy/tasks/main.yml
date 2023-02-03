@@ -10,31 +10,6 @@
     tag: latest
     source: pull
 
-- name: Get username
-  become: false
-  shell:
-    cmd: whoami
-  register: username
-
-- name: show username
-  become: false
-  debug: var=username.stdout
-
-- name: Obtaining project from github
-  git: clone=true repo="{{ app_repository }}" dest="/home/{{ username.stdout }}/{{  app_destination  }}"
-
-
-- name: Show dir
-  shell:
-    chdir: "/home/{{ username.stdout }}/{{  app_destination  }}"
-    cmd: ls
-
-- name: install packages
-  shell:
-    chdir: "/home/{{ username.stdout }}/{{  app_destination  }}"
-    cmd: "npm install"
-
-
 - name: start app inside a container
   docker_container:
     name: "{{ container_name }}"
@@ -46,10 +21,10 @@
     ports:
       - "{{ app_port }}:{{ container_port }}"
     volumes:
-      - "/home/{{ username.stdout }}/{{  app_destination  }}:/app"
+      - "/home/{{ username }}/{{  app_destination  }}:/app"
 
     working_dir: /app
-    command: "npm run start:dev"
+    command: "npm run start:prod"
   register: app_status
 
 - name: show container status

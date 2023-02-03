@@ -1,0 +1,9 @@
+---
+- hosts: test
+  become: yes
+  vars-files:
+    - "vars/default.yml"
+
+  roles:
+    - test
+...

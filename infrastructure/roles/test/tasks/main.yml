@@ -1,0 +1,6 @@
+---
+- name: Ecucute test unit
+  shell:
+    chdir: "/home/{{ username }}/{{  app_destination  }}"
+    cmd: "npm run test"
+...

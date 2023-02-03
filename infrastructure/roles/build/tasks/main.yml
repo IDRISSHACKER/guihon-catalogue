@@ -1,0 +1,4 @@
+- name: Generate bundle
+  shell:
+    chdir: "/home/{{ username }}/{{  app_destination  }}"
+    cmd: "npm run build"

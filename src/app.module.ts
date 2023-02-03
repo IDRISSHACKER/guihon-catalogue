@@ -7,6 +7,7 @@ import {AppService} from "./app.service";
 import { join } from "path"
 import {UsersModule} from "./models/users/users.module";
 import {MongooseModule} from "@nestjs/mongoose";
+import { ImageModule } from './models/image/image.module';
 
 @Module({
   imports: [
@@ -14,12 +15,13 @@ import {MongooseModule} from "@nestjs/mongoose";
         driver: ApolloDriver,
         debug: !env.PROD,
         playground: !env.PROD,
-          autoSchemaFile: join(process.cwd(), "src/schema.gql"),
+          autoSchemaFile: join(process.cwd(), "src/providers/graphql/schema.gql"),
           sortSchema: true,
       }),
       MongooseModule.forRoot(env.DB, {
       }),
       UsersModule,
+      ImageModule,
   ],
   controllers: [AppController],
   providers: [AppService]

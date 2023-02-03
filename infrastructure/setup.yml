@@ -1,7 +1,7 @@
 ---
 - hosts: test
   become: yes
-  vars-files:
+  vars_files:
     - "vars/default.yml"
 
   roles:

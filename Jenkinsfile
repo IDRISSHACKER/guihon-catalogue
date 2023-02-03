@@ -1,5 +1,5 @@
 pipeline{
-     environnement{
+     environment{
         GITHUB_REPOSITORY = 'https://github.com/IDRISSHACKER/guihon-catalogue.git'
      }
 

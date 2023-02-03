@@ -29,11 +29,13 @@ node{
     }
 
     stage('Deploy in prod'){
-        sh ```
-            ansible-playbook ./infrastructure/deploy.yml
-            echo "Cluster is starting"
-            sleep 5
-        ```
+        script{
+            sh ```
+                ansible-playbook ./infrastructure/deploy.yml
+                echo "Cluster is starting"
+                sleep 5
+            ```
+        }
     }
 
     stage('Configure firewall and update SSL/TLS'){

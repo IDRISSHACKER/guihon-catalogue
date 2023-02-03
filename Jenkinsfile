@@ -30,11 +30,11 @@ node{
 
     stage('Deploy in prod'){
         script{
-            sh ```
+            sh '''
                 ansible-playbook ./infrastructure/deploy.yml
                 echo "Cluster is starting"
                 sleep 5
-            ```
+            '''
         }
     }
 

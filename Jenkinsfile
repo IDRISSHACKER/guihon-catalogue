@@ -1,12 +1,7 @@
 pipeline{
-     environment{
-        GITHUB_REPOSITORY = 'https://github.com/IDRISSHACKER/guihon-catalogue.git'
-     }
-
-     agent any
 
     stage('Obtaining project from github'){
-        git $GITHUB_REPOSITORY
+        git 'https://github.com/IDRISSHACKER/guihon-catalogue.git'
     }
 
     stage('Setup environnement'){
@@ -31,13 +26,10 @@ pipeline{
     }
 
     stage('Deploy in prod'){
-        script{
-            sh '''
-                ansible-playbook ./infrastructure/deploy.yml
-                echo "Cluster is starting"
-                sleep 5
-            '''
-        }
+        ansiblePlaybook(
+            colorized: true,
+            playbook: './infrastructure/deploy.yml'
+        )
     }
 
     stage('Configure firewall and update SSL/TLS'){

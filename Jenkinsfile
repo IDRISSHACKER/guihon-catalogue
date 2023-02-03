@@ -32,7 +32,7 @@ node{
         ansiblePlaybook(
             colorized: true,
             playbook: './infrastructure/deploy.yml'
-        )
+        );
         sh ```
             echo "Cluster is starting"
             sleep 5

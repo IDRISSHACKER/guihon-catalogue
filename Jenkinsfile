@@ -29,11 +29,8 @@ node{
     }
 
     stage('Deploy in prod'){
-        ansiblePlaybook(
-            colorized: true,
-            playbook: './infrastructure/deploy.yml'
-        );
         sh ```
+            ansible-playbook ./infrastructure/deploy.yml
             echo "Cluster is starting"
             sleep 5
         ```

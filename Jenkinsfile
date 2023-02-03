@@ -1,7 +1,9 @@
-node{
+pipeline{
      environnement{
         GITHUB_REPOSITORY = 'https://github.com/IDRISSHACKER/guihon-catalogue.git'
      }
+
+     agent any
 
     stage('Obtaining project from github'){
         git $GITHUB_REPOSITORY

@@ -1,4 +1,4 @@
-pipeline{
+node{
 
     stage('Obtaining project from github'){
         git 'https://github.com/IDRISSHACKER/guihon-catalogue.git'

@@ -4,6 +4,7 @@ upstream guihon_catalogue {
 
 server{
     server_name {{ server_dns }};
+    client_max_body_size {{ nginx_max_body_size }};
 
     location / {
 

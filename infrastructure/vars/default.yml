@@ -9,3 +9,4 @@ sites_available_dir: "/etc/nginx/sites-available"
 sites_enabled_dir: "/etc/nginx/sites-enabled"
 container_name: guihon_catalogue_server
 username: ""
+nginx_max_body_size: 10M

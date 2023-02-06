@@ -40,6 +40,7 @@ type Image {
 type Mutation {
   createImage(createImageInput: CreateImageInput!): Image!
   createUser(createUserInput: CreateUserInput!): User!
+  deleteImage(_id: String!): Image!
 }
 
 type Query {

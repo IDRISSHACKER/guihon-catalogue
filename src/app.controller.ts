@@ -30,7 +30,7 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Post('file')
+  @Post('storage/file')
   @UseInterceptors(FileInterceptor('file', {
     storage: diskStorage({
       destination: 'drive',
@@ -53,7 +53,7 @@ export class AppController {
   }
 
 
-  @Get(':filePath')
+  @Get('storage/:filePath')
   async handleStreamFile(
       @Param() param: {filePath: string},
       @Res({ passthrough: true }) res,

@@ -6,16 +6,17 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 @ObjectType()
 export class Image {
 
-    @Field(() => String)
+    @Field(() => String, )
     _id: MongooseSchema.Types.ObjectId;
 
-    @Prop()
+    @Prop({ required: true})
     @Field(() => String, { description: 'Path of staged file' })
     path: string;
 
-    @Prop()
+    @Prop({ required: true})
     @Field(() => String, { description: 'Label of file' })
     label: string;
+
 }
 
 export const ImageSchema = SchemaFactory.createForClass(Image);

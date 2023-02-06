@@ -5,6 +5,7 @@ import env from "./common/constants/settings";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.enableCors()
   await app.listen(env.PORT);
 }
 bootstrap();

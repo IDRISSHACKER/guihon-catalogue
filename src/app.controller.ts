@@ -20,6 +20,7 @@ import mine = require('mime-types');
 import {NextFunction} from "express";
 import * as fs from "fs";
 import {createReadStream} from "fs";
+import env from "./common/constants/settings";
 
 @Controller()
 export class AppController {
@@ -33,7 +34,7 @@ export class AppController {
   @Post('storage/file')
   @UseInterceptors(FileInterceptor('file', {
     storage: diskStorage({
-      destination: 'drive',
+      destination: env.STORAGE_DIR,
 
       filename(req, file, callback) {
         callback(null, generateUniqueFileName(file.originalname));
@@ -60,7 +61,7 @@ export class AppController {
       @Ip() ip,
       @Next() next: NextFunction,
   ) {
-    const UPLOAD_FOLDER = 'drive'
+    const UPLOAD_FOLDER = env.STORAGE_DIR
 
     let rootToFile = join(process.cwd(), UPLOAD_FOLDER, param.filePath);
 

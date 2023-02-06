@@ -18,7 +18,7 @@ import { ImageModule } from './models/image/image.module';
           autoSchemaFile: join(process.cwd(), "src/providers/graphql/schema.gql"),
           sortSchema: true,
       }),
-      MongooseModule.forRoot(env.DB, {
+      MongooseModule.forRoot(env.PROD ? env.DB : env.DB_TEST, {
       }),
       UsersModule,
       ImageModule,

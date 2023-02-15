@@ -6,7 +6,7 @@
 
 - name: start app inside a container
   docker_container:
-    name: nfs
+    name: catalogue
     image: idrissduval/catalogue
     state: started
     ports:

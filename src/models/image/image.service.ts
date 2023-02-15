@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
 import {Model} from "mongoose";
-import {Image} from "./entity/image.entity";
+import {Image as IM} from "./entity/image.entity";
 import {CreateImageInput} from "./dto/createImage.input";
 import {join} from "path";
 import * as fs from "fs";
@@ -10,7 +10,7 @@ import * as fs from "fs";
 export class ImageService {
     constructor(
         @InjectModel(Image.name)
-        private readonly imageModel: Model<Image>
+        private readonly imageModel: Model<IM>
     ) {}
 
     async getImages(filter: any = -1) {

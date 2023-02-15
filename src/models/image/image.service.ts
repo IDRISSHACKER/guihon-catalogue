@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {InjectModel} from "@nestjs/mongoose";
-import {Model} from "mongoose";
+import {Model, Mongoose} from "mongoose";
 import {Image as IM} from "./entity/image.entity";
 import {CreateImageInput} from "./dto/createImage.input";
 import {join} from "path";
@@ -13,7 +13,7 @@ export class ImageService {
         private readonly imageModel: Model<IM>
     ) {}
 
-    async getImages(filter: any = -1) {
+    async getImages(filter: any = -1): Promise<string | Array<IM> | Error> {
         try{
             const users = await this.imageModel.find().sort({_id: filter});
 
@@ -27,7 +27,7 @@ export class ImageService {
         }
     }
 
-    async createImage(createImageInput: CreateImageInput) {
+    async createImage(createImageInput: CreateImageInput): Promise<string | IM | Error> {
         try{
             const image = await this.imageModel.create(createImageInput);
             return image.save();
@@ -37,7 +37,7 @@ export class ImageService {
         }
     }
 
-    async deleteImage(id: string) {
+    async deleteImage(id: string): Promise<any> {
         try{
             const UPLOAD_FOLDER = 'drive'
 

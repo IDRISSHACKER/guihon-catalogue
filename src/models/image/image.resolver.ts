@@ -9,17 +9,17 @@ export class ImageResolver {
     constructor(private readonly imageService: ImageService) {}
 
     @Query(() => [IM])
-    getImages() {
+    getImages(): Promise<any> {
         return this.imageService.getImages()
     }
 
     @Mutation(() => IM)
-    createImage(@Args('createImageInput') createImageInput: CreateImageInput) {
+    createImage(@Args('createImageInput') createImageInput: CreateImageInput): Promise<any> {
         return this.imageService.createImage(createImageInput)
     }
 
     @Mutation(() => IM)
-     async deleteImage(@Args('_id') id: string) {
+     async deleteImage(@Args('_id') id: string): Promise<any> {
         return await this.imageService.deleteImage(id)
     }
 }

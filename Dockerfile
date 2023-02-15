@@ -2,6 +2,11 @@ FROM node:latest
 
 WORKDIR /app
 
+COPY .env .
+
+ARG prod=true
+ENV PROD=prod
+
 RUN npm install pm2 -g
 RUN npm install -g pnpm
 

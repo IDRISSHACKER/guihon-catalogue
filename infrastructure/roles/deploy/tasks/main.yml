@@ -1,51 +1,14 @@
 ---
-- name: Get username
-  become: false
-  shell:
-    cmd: whoami
-  register: user
-
-- name: Set home username
-  set_fact:
-    username: "{{ user.stdout }}"
-
-- name: Start docker
-  service:
-    name: "docker"
-    state: started
-
 - name: pulling image
   docker_image:
-    name: node
-    tag: latest
+    name: idrissduval/catalogue
     source: pull
 
 - name: start app inside a container
   docker_container:
-    name: "{{ container_name }}"
-    image: node:18.13.0-alpine
+    name: nfs
+    image: idrissduval/catalogue
     state: started
-    recreate: yes
-    exposed_ports:
-      - "{{ app_port }}"
     ports:
-      - "{{ app_port }}:{{ container_port }}"
-    volumes:
-      - "/home/{{ username }}/{{  app_destination  }}:/app"
-
-    working_dir: /app
-    command: "npm run start:prod"
-  register: app_status
-
-- name: show container status
-  debug: var=app_status
-
-
-- name: get container logs
-  shell:
-    cmd: "docker logs {{ container_name }}"
-  register: container_logs
-
-- name: show container status
-  debug: var=container_logs
+      - "8223:8000"
 ...

@@ -9,7 +9,7 @@ import * as fs from "fs";
 @Injectable()
 export class ImageService {
     constructor(
-        @InjectModel(Image.name)
+        @InjectModel(IM.name)
         private readonly imageModel: Model<IM>
     ) {}
 

@@ -2,7 +2,7 @@ FROM node:latest
 
 WORKDIR /app
 
-COPY .env .
+COPY .env ./
 
 ARG prod=true
 ENV PROD=prod
@@ -10,13 +10,13 @@ ENV PROD=prod
 RUN npm install pm2 -g
 RUN npm install -g pnpm
 
-COPY package*.json .
+COPY package*.json ./
 RUN pnpm install
 
 COPY src src
-COPY ecosystem.config.js .
-COPY nest-cli.json .
-COPY tsconfig.json .
+COPY ecosystem.config.js ./
+COPY nest-cli.json ./
+COPY tsconfig.json ./
 
 RUN pnpm run build
 

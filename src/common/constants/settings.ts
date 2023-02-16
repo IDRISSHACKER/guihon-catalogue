@@ -1,12 +1,13 @@
-import { load } from 'ts-dotenv';
+import * as dotenv from "dotenv"
+dotenv.config()
 
-const env = load({
-  APP_NAME: String,
-  PROD: Boolean,
-  PORT: Number,
-  DB: String,
-  DB_TEST: String,
-  STORAGE_DIR: String,
-});
+const env = {
+  APP_NAME: process.env.APP_NAME,
+  PROD: process.env.PROD,
+  PORT: process.env.PORT,
+  DB: process.env.DB,
+  DB_TEST: process.env.DB_TEST,
+  STORAGE_DIR: process.env.STORAGE_DIR,
+}
 
 export default env;

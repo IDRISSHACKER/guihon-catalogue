@@ -4,8 +4,7 @@ WORKDIR /app
 
 COPY .env ./
 
-ARG prod=true
-ENV PROD=prod
+RUN sed -i "s/PROD=false/PROD=true/g" ./.env
 
 RUN npm install pm2 -g
 RUN npm install -g pnpm

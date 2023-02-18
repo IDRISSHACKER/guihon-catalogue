@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY .env ./
 
-RUN sed -i "s/PROD=false/PROD=true/g" ./.env
+RUN sed -i "s/PROD=0/PROD=1/g" ./.env
 
 
 RUN npm install pm2 -g

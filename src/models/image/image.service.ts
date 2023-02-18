@@ -43,9 +43,9 @@ export class ImageService {
 
       const imagePathInDriver = image.path;
 
-      await fetch(`https://nfs.guihon.cm/driver/${imagePathInDriver}`, {
-        method: 'DELETE',
-      });
+      //await fetch(`https://nfs.guihon.cm/driver/${imagePathInDriver}`, {
+      //   method: 'DELETE',
+      // });
 
       return this.imageModel.deleteOne({ _id: id });
     } catch (error) {
